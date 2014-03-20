@@ -1,4 +1,8 @@
 shell
 =====
 
-tilda style shell UI component
+# demo
+
+    npm run build
+    
+and open index.html in a browser

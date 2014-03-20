@@ -1,0 +1,88 @@
+.shell{
+  float:right;
+}
+
+.shell > div {
+  position: absolute;
+  witdh:100px;
+  top: 0;
+  width: 800px;
+  left: 100px;
+  overflow: hidden; 
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 0px solid rgb(229, 229, 229);
+  -webkit-transition: max-height 0.2s ease;
+  -moz-transition: max-height 0.2s ease;
+  -ms-transition: max-height 0.2s ease;
+  -o-transition: max-height 0.2s ease;
+  transition: max-height 0.2s ease;
+}
+
+.shell-content {
+  padding: 1em;
+}
+
+div.shell-open{
+  border-left: 1px solid rgb(229, 229, 229);
+  border-right: 1px solid rgb(229, 229, 229);
+  border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+.shell > h3{
+  width: 100px;
+  position:relative;
+  padding-left: 5px;
+  padding-right: 20px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+  background-color: rgb(229, 229, 229);
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 4px;
+}
+
+.shell > h3:hover{
+  border-color: black;
+  cursor: pointer;
+}
+
+h3.shell-open{
+  border-bottom-right-radius: 0px;  
+  border-bottom-left-radius: 0px;  
+}
+
+.shell-caret h3:before {
+  display: inline-block;
+  content: ' ';
+  vertical-align: middle;
+  height: 0;
+  position: relative;
+  left: -2px;
+  border: 5px solid transparent;
+  border-left-color: black;
+}
+
+.shell-caret h3.shell-open:before {
+  top: 2px;
+  border: 5px solid transparent;
+  border-top-color: black;
+}
+
+a.shell-destroy {
+  position:absolute;
+  right:0;
+  margin-right:0.3em;
+  color: white;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+a.shell-destroy:visited {
+  color: white;  
+}
+
+a.shell-destroy:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: rgb(221, 56, 60);
+}

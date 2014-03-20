@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="bundle.js"></script>
+
+    <script>
+    var Shell = require('shell');
+    document.addEventListener('DOMContentLoaded', function(e){
+      var shell = new Shell(document.getElementsByClassName('shell')[0], {destroyable: true});
+      shell.on('added', function(id){console.log('a', id)});
+      shell.on('removed', function(id){console.log('r', id)});
+
+      setTimeout(function(){
+        shell.append('<h3>added</h3><div>added content</div>');
+      }, 2000);
+    });
+    </script>
+
+  </head>
+  <body>
+
+    <div class="shell shell-caret">
+
+      <h3>title 1</h3>
+      <div> 
+        Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit. Curabitur porta nulla nec volutpat
+        iaculis. Vivamus sed tellus sed tortor ultrices
+        posuere. Praesent porta, felis at congue tincidunt,
+        eros dui hendrerit massa, vitae tincidunt enim diam
+        a diam. Vivamus ultrices nibh dolor, et accumsan
+        nisl tincidunt et. Mauris ornare tellus quis enim
+        gravida, id tempor augue porta. Nunc ultrices felis
+        rhoncus vulputate egestas. Etiam nisi magna,
+        bibendum ut facilisis ornare, suscipit a
+        risus. Maecenas semper lacinia arcu, eu convallis
+        turpis. Etiam pharetra elementum gravida. In vitae
+        aliquet odio, non ultricies risus. Quisque ut urna
+        sit amet velit pharetra vestibulum et sed tellus.
+      </div>
+
+      <h3>title 2</h3>
+      <div> 
+        Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit. Curabitur porta nulla nec volutpat
+        iaculis. Vivamus sed tellus sed tortor ultrices
+        posuere. Praesent porta, felis at congue tincidunt,
+        eros dui hendrerit massa, vitae tincidunt enim diam
+        a diam. Vivamus ultrices nibh dolor, et accumsan
+        nisl tincidunt et. Mauris ornare tellus quis enim
+        gravida, id tempor augue porta. Nunc ultrices felis
+        rhoncus vulputate egestas. Etiam nisi magna,
+        bibendum ut facilisis ornare, suscipit a
+        risus. Maecenas semper lacinia arcu, eu convallis
+        turpis. Etiam pharetra elementum gravida. In vitae
+        aliquet odio, non ultricies risus. Quisque ut urna
+        sit amet velit pharetra vestibulum et sed tellus.
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit. Curabitur porta nulla nec volutpat
+        iaculis. Vivamus sed tellus sed tortor ultrices
+        posuere. Praesent porta, felis at congue tincidunt,
+        eros dui hendrerit massa, vitae tincidunt enim diam
+        a diam. Vivamus ultrices nibh dolor, et accumsan
+        nisl tincidunt et. Mauris ornare tellus quis enim
+        gravida, id tempor augue porta. Nunc ultrices felis
+        rhoncus vulputate egestas. Etiam nisi magna,
+        bibendum ut facilisis ornare, suscipit a
+        risus. Maecenas semper lacinia arcu, eu convallis
+        turpis. Etiam pharetra elementum gravida. In vitae
+        aliquet odio, non ultricies risus. Quisque ut urna
+        sit amet velit pharetra vestibulum et sed tellus.
+      </div>
+
+      <h3>title 3</h3>
+      <div> 
+        content 3
+      </div>
+
+    </div>
+
+  </body>
+</html>
