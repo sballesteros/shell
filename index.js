@@ -11,11 +11,11 @@ function Shell(container, opts){
   this.headerTag = opts.headerTag || 'h3';
   this.opened = undefined;
 
-  Array.prototype.forEach.call(this.container.getElementsByTagName(this.headerTag), function(el){ 
+  Array.prototype.forEach.call(this.container.getElementsByTagName(this.headerTag), function(el){
     this.init(el);
-  }, this);  
+  }, this);
 
-  this.container.addEventListener('click', function(e) {   
+  this.container.addEventListener('click', function(e) {
     if(e.target && e.target.tagName === this.headerTag.toUpperCase()) {
       e.target.classList.toggle('shell-open');
 
@@ -35,20 +35,21 @@ function Shell(container, opts){
 
       wrapper.classList.toggle('shell-open');
     } else if (e.target.classList.contains('shell-destroy')) {
-      
+
       e.preventDefault();
 
       var id = e.target.parentNode.id
         , accHeader = e.target.parentNode
         , accContent = accHeader.nextElementSibling;
 
+      var section = accHeader.parentNode;
 
       if(this.opened && this.opened === accHeader) {
         this.opened = undefined;
       }
-      this.container.removeChild(accHeader);
-      this.container.removeChild(accContent);
-      
+      section.removeChild(accHeader);
+      section.removeChild(accContent);
+
       this.emit('removed', id);
     }
   }.bind(this));
@@ -57,8 +58,9 @@ function Shell(container, opts){
 
 util.inherits(Shell, events.EventEmitter);
 
-
 Shell.prototype.init = function(headerElement){
+
+  console.log(headerElement.innerHTML);
 
   //add close
   if(this.destroyable){
@@ -83,10 +85,12 @@ Shell.prototype.init = function(headerElement){
   this.emit('added', headerElement.id);
 };
 
-Shell.prototype.append = function(html){
-  var liveSel = this.container.getElementsByTagName(this.headerTag);
+Shell.prototype.append = function(id, html){
+  var section = this.container.querySelector('#' + id);
+
+  var liveSel = section.getElementsByTagName(this.headerTag);
   var offset = liveSel.length;
-  this.container.insertAdjacentHTML('beforeend', html);
+  section.insertAdjacentHTML('beforeend', html);
   for(var i=offset; i<liveSel.length; i++){
     this.init(liveSel[i]);
   }
