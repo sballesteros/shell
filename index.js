@@ -60,8 +60,6 @@ util.inherits(Shell, events.EventEmitter);
 
 Shell.prototype.init = function(headerElement){
 
-  console.log(headerElement.innerHTML);
-
   //add close
   if(this.destroyable){
     headerElement.insertAdjacentHTML('beforeend', '<a class="shell-destroy" title="destroy" href="#">&times;</a>');
