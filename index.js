@@ -7,6 +7,7 @@ function Shell(container, opts){
   opts = opts || {};
 
   this.destroyable = opts.destroyable || false;
+  this.closable = opts.closable || false;
   this.container = container;
   this.headerTag = opts.headerTag || 'h3';
   this.opened = undefined;
@@ -51,6 +52,12 @@ function Shell(container, opts){
       section.removeChild(accContent);
 
       this.emit('removed', id);
+    } else if (e.target.classList.contains('shell-close')){
+      e.preventDefault();
+      //find closest h3
+      var el = e.target;
+      while( !(el = el.parentNode).classList.contains('shell-entry') );
+      el.previousElementSibling.click();
     }
   }.bind(this));
 
@@ -60,13 +67,17 @@ util.inherits(Shell, events.EventEmitter);
 
 Shell.prototype.init = function(headerElement){
 
-  //add close
+  //add destroy
   if(this.destroyable){
     headerElement.insertAdjacentHTML('beforeend', '<a class="shell-destroy" title="destroy" href="#">&times;</a>');
   }
 
   var content = headerElement.nextElementSibling;
   content.classList.add('shell-content');
+  //add close
+  if(this.closable){
+    content.insertAdjacentHTML('afterbegin', '<a class="shell-close" title="close" href="#">&times;</a>');
+  }
 
   //wrap content into a div so that we know the size (for CSS3 transition)...
   var parent = content.parentNode;

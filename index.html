@@ -9,7 +9,8 @@
     <script>
     var Shell = require('shell');
     document.addEventListener('DOMContentLoaded', function(e){
-      var shell = new Shell(document.getElementsByClassName('shell')[0], {destroyable: true});
+      var shell = new
+    Shell(document.getElementsByClassName('shell')[0], {destroyable: true, closable: true});
       shell.on('added', function(id){console.log('a', id)});
       shell.on('removed', function(id){console.log('r', id)});
 

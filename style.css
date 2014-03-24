@@ -19,6 +19,7 @@ body{
 .shell-content {
   background-color:white;
   padding: 1em;
+  position: relative;
 }
 
 /*
@@ -43,20 +44,24 @@ body{
   cursor: pointer;
 }
 
-a.shell-destroy {
+a.shell-destroy, a.shell-close {
   position:absolute;
   right:0;
-  margin-right:0.3em;
   color: grey;
   opacity: 0.6;
   text-decoration: none;
+  top:0;
 }
 
-a.shell-destroy:visited {
+a.shell-destroy {
+  margin-right:0.3em;
+}
+
+a.shell-destroy:visited, a.shell-close:visited {
   color: grey;  
 }
 
-a.shell-destroy:hover {
+a.shell-destroy:hover, a.shell-close:hover {
   opacity: 1;
   text-decoration: none;
   color: rgb(221, 56, 60);
