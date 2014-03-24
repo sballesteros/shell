@@ -50,11 +50,11 @@ a.shell-destroy, a.shell-close {
   color: grey;
   opacity: 0.6;
   text-decoration: none;
-  top:0;
+  margin-right:0.3em;
 }
 
-a.shell-destroy {
-  margin-right:0.3em;
+a.shell-close{
+  top:0;
 }
 
 a.shell-destroy:visited, a.shell-close:visited {
