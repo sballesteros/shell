@@ -16,54 +16,55 @@ function Shell(container, opts){
     this.init(el);
   }, this);
 
-  this.container.addEventListener('click', function(e) {
-    if(e.target && e.target.tagName === this.headerTag.toUpperCase()) {
-      e.target.classList.toggle('shell-open');
-
-      var wrapper = e.target.nextElementSibling;
-
-      if(wrapper.style.maxHeight === '0px'){
-        wrapper.style.maxHeight = wrapper.firstElementChild.getBoundingClientRect().height*2 + 'px'; //http://stackoverflow.com/questions/3508605/css-transition-height-0-to-height-auto
-        if(this.opened && this.opened !== e.target) {
-          this.opened.nextElementSibling.style.maxHeight = '0px';
-          this.opened.nextElementSibling.classList.remove('shell-open');
-          this.opened.classList.remove('shell-open');
-        }
-        this.opened = e.target;
-      } else {
-        wrapper.style.maxHeight = '0px';
-      }
-
-      wrapper.classList.toggle('shell-open');
-    } else if (e.target.classList.contains('shell-destroy')) {
-
-      e.preventDefault();
-
-      var id = e.target.parentNode.id
-        , accHeader = e.target.parentNode
-        , accContent = accHeader.nextElementSibling;
-
-      var section = accHeader.parentNode;
-
-      if(this.opened && this.opened === accHeader) {
-        this.opened = undefined;
-      }
-      section.removeChild(accHeader);
-      section.removeChild(accContent);
-
-      this.emit('removed', id);
-    } else if (e.target.classList.contains('shell-close')){
-      e.preventDefault();
-      //find closest h3
-      var el = e.target;
-      while( !(el = el.parentNode).classList.contains('shell-entry') );
-      el.previousElementSibling.click();
-    }
-  }.bind(this));
-
+  this.container.addEventListener('click', this.onclick.bind(this));
 };
 
 util.inherits(Shell, events.EventEmitter);
+
+Shell.prototype.onclick = function(e) {
+  if(e.target && e.target.tagName === this.headerTag.toUpperCase()) {
+    e.target.classList.toggle('shell-open');
+
+    var wrapper = e.target.nextElementSibling;
+
+    if(wrapper.style.maxHeight === '0px'){
+      wrapper.style.maxHeight = wrapper.firstElementChild.getBoundingClientRect().height*2 + 'px'; //http://stackoverflow.com/questions/3508605/css-transition-height-0-to-height-auto
+      if(this.opened && this.opened !== e.target) {
+        this.opened.nextElementSibling.style.maxHeight = '0px';
+        this.opened.nextElementSibling.classList.remove('shell-open');
+        this.opened.classList.remove('shell-open');
+      }
+      this.opened = e.target;
+    } else {
+      wrapper.style.maxHeight = '0px';
+    }
+
+    wrapper.classList.toggle('shell-open');
+  } else if (e.target.classList.contains('shell-destroy')) {
+
+    e.preventDefault();
+
+    var id = e.target.parentNode.id
+    , accHeader = e.target.parentNode
+    , accContent = accHeader.nextElementSibling;
+
+    var section = accHeader.parentNode;
+
+    if(this.opened && this.opened === accHeader) {
+      this.opened = undefined;
+    }
+    section.removeChild(accHeader);
+    section.removeChild(accContent);
+
+    this.emit('removed', id);
+  } else if (e.target.classList.contains('shell-close')){
+    e.preventDefault();
+    //find closest h3
+    var el = e.target;
+    while( !(el = el.parentNode).classList.contains('shell-entry') );
+    el.previousElementSibling.click();
+  }
+};
 
 Shell.prototype.init = function(headerElement){
 
