@@ -45,8 +45,8 @@ Shell.prototype.onclick = function(e) {
     e.preventDefault();
 
     var id = e.target.parentNode.id
-    , accHeader = e.target.parentNode
-    , accContent = accHeader.nextElementSibling;
+      , accHeader = e.target.parentNode
+      , accContent = accHeader.nextElementSibling;
 
     var section = accHeader.parentNode;
 

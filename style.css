@@ -5,8 +5,8 @@ body{
 .shell .shell-section > div {
   position: absolute; 
   top: 0;
-  left:50%;
-  margin-left:-400px; /*half the width to center*/
+  /*  left:50%; */
+  /*  margin-left:-400px; */ /* half the width to center */
   width: 800px;
   overflow: hidden; 
   -webkit-transition: max-height 0.2s ease;
