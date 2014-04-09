@@ -20,14 +20,12 @@ function Shell(container, opts){
 
   this.container.addEventListener('mouseover', function(e){
     var $title = e.target;
-    if($title.className.indexOf('hovered')==-1){
-      $title.className += ' hovered';
-    }
+    $title.classList.add('hovered');
   });
 
   this.container.addEventListener('mouseout', function(e){
     var $title = e.target;
-    $title.className = $title.className.replace(' hovered','');
+    $title.classList.remove('hovered');
   });
 
 };

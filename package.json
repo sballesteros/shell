@@ -1,6 +1,6 @@
 {
   "name":"stan-shell",
-  "version":"0.3.1",
+  "version":"0.3.2",
   "description":"shell UI component (tilda style)",
   "main":"index.js",
   "scripts":{
