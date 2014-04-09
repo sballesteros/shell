@@ -1,29 +1,23 @@
 {
-  "name": "stan-shell",
-  "version": "0.3.0",
-  "description": "shell UI component (tilda style)",
-  "main": "index.js",
-  "scripts": {
-    "build": "node_modules/.bin/browserify index.js | node_modules/.bin/uglifyjs -mc > bundle.js",
-    "debug": "node_modules/.bin/watchify -r ./index.js:shell -o bundle.js -dv"
+  "name":"stan-shell",
+  "version":"0.3.1",
+  "description":"shell UI component (tilda style)",
+  "main":"index.js",
+  "scripts":{
+    "build":"node_modules/.bin/browserify index.js | node_modules/.bin/uglifyjs -mc > bundle.js","debug":"node_modules/.bin/watchify -r ./index.js:shell -o bundle.js -dv"
   },
   "repository": {
-    "type": "git",
-    "url": "git://github.com/standard-analytics/shell.git"
+    "type":"git",
+    "url":"git://github.com/standard-analytics/shell.git"
   },
-  "keywords": [
-    "shell",
-    "UI"
-  ],
-  "author": "Sebastien Ballesteros",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/standard-analytics/shell/issues"
-  },
-  "homepage": "https://github.com/standard-analytics/shell",
-  "devDependencies": {
-    "watchify": "~0.6.1",
-    "browserify": "~3.30.0",
-    "uglify-js": "~2.4.12"
+  "keywords": ["shell","UI"],
+  "author":"Sebastien Ballesteros",
+  "license":"MIT",
+  "bugs": {"url":"https://github.com/standard-analytics/shell/issues"},
+  "homepage":"https://github.com/standard-analytics/shell",
+  "devDependencies":{
+    "watchify":"~0.6.1",
+    "browserify":"~3.30.0",
+    "uglify-js":"~2.4.12"
   }
 }
