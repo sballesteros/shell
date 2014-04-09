@@ -17,6 +17,19 @@ function Shell(container, opts){
   }, this);
 
   this.container.addEventListener('click', this.onclick.bind(this));
+
+  this.container.addEventListener('mouseover', function(e){
+    var $title = e.target;
+    if($title.className.indexOf('hovered')==-1){
+      $title.className += ' hovered';
+    }
+  });
+
+  this.container.addEventListener('mouseout', function(e){
+    var $title = e.target;
+    $title.className = $title.className.replace(' hovered','');
+  });
+
 };
 
 util.inherits(Shell, events.EventEmitter);
